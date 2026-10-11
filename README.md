@@ -2,6 +2,24 @@
 
 A personal Android workout tracker built with Flutter. Exercises, plans and workout records stay in a local SQLite database. There are no accounts or remote services.
 
+## Screenshots
+
+Current Android app screens using sample workout data: choose exercises in any order, log each set in kg, and track progress over time.
+
+### Light mode
+
+| Workout checklist | Set logger | Exercise progress |
+| :---: | :---: | :---: |
+| <img src=".impeccable/review/fieldnotes-light-phone-checklist.png" alt="Light-mode workout checklist with freely selectable exercises and completion indicators" width="240"> | <img src=".impeccable/review/fieldnotes-light-phone-logger.png" alt="Light-mode set logger with kg, reps, completed sets and previous workout values" width="240"> | <img src=".impeccable/review/fieldnotes-light-phone-stats.png" alt="Light-mode exercise progress with weight trend chart and metric selectors" width="240"> |
+
+### Dark mode
+
+These captures also show the app with enlarged system text.
+
+| Workout checklist | Set logger | Exercise progress |
+| :---: | :---: | :---: |
+| <img src=".impeccable/review/fieldnotes-dark-large-phone-checklist.png" alt="Dark-mode workout checklist with enlarged text" width="240"> | <img src=".impeccable/review/fieldnotes-dark-large-phone-logger.png" alt="Dark-mode kg and reps logger with enlarged text" width="240"> | <img src=".impeccable/review/fieldnotes-dark-large-phone-stats.png" alt="Dark-mode exercise progress chart with enlarged text" width="240"> |
+
 ## Using the app
 
 1. Create a plan and add exercises from the 35-item catalogue, or create a custom exercise in the picker.
