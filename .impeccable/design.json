@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-11T21:36:23.854Z",
+  "title": "Design System: GymTracker",
+  "extensions": {
+    "colorMeta": {
+      "primary-seed": {
+        "role": "primary",
+        "displayName": "Deep blue seed",
+        "tonalRamp": [
+          "oklch(15.00% 0.15308 259.86)",
+          "oklch(26.43% 0.15308 259.86)",
+          "oklch(37.86% 0.15308 259.86)",
+          "oklch(49.29% 0.15308 259.86)",
+          "oklch(60.71% 0.15308 259.86)",
+          "oklch(72.14% 0.15308 259.86)",
+          "oklch(83.57% 0.15308 259.86)",
+          "oklch(95.00% 0.15308 259.86)"
+        ],
+        "purpose": "Synthetic OKLCH display ramp of the seed for this panel only, with gamut mapping delegated to the browser. These are not generated Material role colors and must never be copied into application ColorScheme."
+      }
+    },
+    "typographyMeta": {
+      "headline-small": {
+        "displayName": "Headline Small",
+        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+      },
+      "title-large": {
+        "displayName": "Title Large",
+        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+      },
+      "title-medium": {
+        "displayName": "Title Medium",
+        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+      },
+      "title-small": {
+        "displayName": "Title Small",
+        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+      },
+      "body-large": {
+        "displayName": "Body Large",
+        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+      },
+      "body-medium": {
+        "displayName": "Body Medium",
+        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+      },
+      "label-large": {
+        "displayName": "Label Large",
+        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+      }
+    },
+    "shadows": [
+      {
+        "name": "filled-button-rest",
+        "value": "0dp",
+        "purpose": "Inherited native Flutter Material elevation; not a CSS box-shadow."
+      },
+      {
+        "name": "filled-button-hover",
+        "value": "1dp",
+        "purpose": "Inherited native Flutter Material elevation when hovered; not a CSS box-shadow."
+      }
+    ],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "navigation-rail",
+        "value": "700dp"
+      }
+    ],
+    "nativePlatform": {
+      "platform": "Android",
+      "renderer": "Flutter Material 3",
+      "units": {
+        "geometry": "dp-equivalent Flutter logical pixels",
+        "typography": "sp-equivalent base values, scaled through MediaQuery.textScaler"
+      },
+      "pageMaxWidth": "840dp",
+      "themeAuthority": "lib/main.dart: appTheme; ColorScheme.fromSeed for light and dark; no fixed generated-role hex values extracted",
+      "filterReflow": "lib/screens/exercise_picker.dart: filters stack when textScaler.scale(14) > 16",
+      "componentPreviewPolicy": "All HTML/CSS components below are nonshipping browser illustrations. They use browser system colors, not application colors. Application rendering and states remain in native Flutter widgets.",
+      "motionAuthority": "No application-specific motion overrides; inherited Flutter ripple, state layers, routes and dialogs."
+    },
+    "sourceMap": [
+      {
+        "source": "lib/main.dart",
+        "owns": [
+          "primary-seed",
+          "Material3",
+          "brightness-dependent ColorScheme",
+          "48dp button minimum",
+          "outlined inputs",
+          "start-aligned app bars"
+        ]
+      },
+      {
+        "source": "lib/screens/common.dart",
+        "owns": [
+          "840dp max PageBody",
+          "empty-state pattern",
+          "year-aware dates"
+        ]
+      },
+      {
+        "source": "lib/screens/home_screen.dart",
+        "owns": [
+          "700dp rail breakpoint",
+          "navigation destinations",
+          "resume strip",
+          "plan rows",
+          "FAB clearance"
+        ]
+      },
+      {
+        "source": "lib/screens/exercise_picker.dart",
+        "owns": [
+          "integrated search/filters",
+          "font-scale filter stacking",
+          "catalogue rows"
+        ]
+      },
+      {
+        "source": "lib/screens/session_screen.dart",
+        "owns": [
+          "exercise checklist",
+          "set row",
+          "completion box",
+          "logger actions",
+          "semantic completion labels"
+        ]
+      },
+      {
+        "source": "lib/screens/plan_editor.dart",
+        "owns": [
+          "ordered exercise rows",
+          "keyboard-accessible ordering menu",
+          "bottom save action"
+        ]
+      },
+      {
+        "source": "lib/screens/stats_screen.dart",
+        "owns": [
+          "wrapping totals and chips",
+          "chart geometry",
+          "exact recorded values",
+          "chart semantics"
+        ]
+      },
+      {
+        "source": "S:/Flutter/flutter/packages/flutter/lib/src/material/typography.dart",
+        "owns": [
+          "Roboto Android family",
+          "Material 2021 English-like typography metrics"
+        ]
+      },
+      {
+        "source": "S:/Flutter/flutter/packages/flutter/lib/src/material/filled_button.dart",
+        "owns": [
+          "native StadiumBorder",
+          "default state layers",
+          "native hover elevation"
+        ]
+      },
+      {
+        "source": "S:/Flutter/flutter/packages/flutter/lib/src/material/input_border.dart",
+        "owns": [
+          "default 4dp OutlineInputBorder radius"
+        ]
+      },
+      {
+        "source": ".impeccable/surface-contract.md",
+        "owns": [
+          "user-selected Circuit station board metaphor",
+          "exercise checklist and focused logger direction"
+        ]
+      },
+      {
+        "source": ".impeccable/review/",
+        "owns": [
+          "light-phone and dark-large-phone rendering evidence; final recaptures and review verdict maintained separately"
+        ]
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Filled button",
+      "kind": "button",
+      "refersTo": "button-filled",
+      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
+      "html": "<div class=\"ds-preview\"><button class=\"ds-filled\">Save plan</button></div>",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-filled{min-height:48px;min-width:48px;padding:0 24px;border:0;border-radius:999px;background:Highlight;color:HighlightText;font:500 14px Roboto,Arial,sans-serif}"
+    },
+    {
+      "name": "Outlined button",
+      "kind": "button",
+      "refersTo": "button-outlined",
+      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
+      "html": "<div class=\"ds-preview\"><button class=\"ds-outlined\">Add set</button></div>",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-outlined{min-height:48px;min-width:48px;padding:0 24px;border:1px solid CanvasText;border-radius:999px;background:Canvas;color:CanvasText;font:500 14px Roboto,Arial,sans-serif}"
+    },
+    {
+      "name": "Text button",
+      "kind": "button",
+      "description": "Nonshipping browser illustration of a native TextButton. Browser system colors and approximate CSS do not encode exact Flutter rendering.",
+      "html": "<div class=\"ds-preview\"><button class=\"ds-text\">Skip exercise</button></div>",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;background:Canvas;color:CanvasText}.ds-text{min-height:48px;border:0;padding:8px 12px;background:Canvas;color:Highlight;font:500 14px Roboto,Arial,sans-serif}.ds-text:hover{background:ButtonFace}.ds-text:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-text:active{filter:brightness(.9)}"
+    },
+    {
+      "name": "Outlined field",
+      "kind": "input",
+      "refersTo": "input-outlined",
+      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
+      "html": "<div class=\"ds-preview\"><label class=\"ds-field\">Weight (kg)<input type=\"number\" min=\"0\" value=\"50\"></label></div>",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-field{display:grid;gap:4px;font-size:14px}.ds-field input{border:1px solid CanvasText;border-radius:4px;padding:16px;background:Canvas;color:CanvasText;font:400 16px Roboto,Arial,sans-serif}"
+    },
+    {
+      "name": "Navigation destinations",
+      "kind": "nav",
+      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
+      "html": "<nav class=\"ds-preview ds-nav\" aria-label=\"Main\"><button aria-current=\"page\">Workouts</button><button>History</button><button>Stats</button></nav>",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-nav{display:flex;gap:8px;flex-wrap:wrap}.ds-nav button{min-height:48px;padding:8px 16px;border:0;background:Canvas;color:CanvasText;border-radius:16px;font:500 14px Roboto,Arial,sans-serif}.ds-nav button[aria-current]{background:Highlight;color:HighlightText}"
+    },
+    {
+      "name": "Metric choice chip",
+      "kind": "chip",
+      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
+      "html": "<div class=\"ds-preview ds-chips\"><button aria-pressed=\"true\">Weight</button><button aria-pressed=\"false\">Reps</button></div>",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-chips{display:flex;gap:8px;flex-wrap:wrap}.ds-chips button{padding:8px 16px;border:1px solid CanvasText;border-radius:8px;background:Canvas;color:CanvasText;font:500 14px Roboto,Arial,sans-serif}.ds-chips button[aria-pressed=true]{background:Highlight;color:HighlightText}"
+    },
+    {
+      "name": "Resume strip",
+      "kind": "card",
+      "refersTo": "resume-strip",
+      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
+      "html": "<div class=\"ds-preview\"><button class=\"ds-resume\"><strong>Resume workout</strong><span>3 saved sets</span></button></div>",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-resume{display:grid;text-align:start;gap:4px;width:100%;padding:16px;border:0;border-radius:16px;background:Highlight;color:HighlightText;font:400 16px Roboto,Arial,sans-serif}"
+    },
+    {
+      "name": "Set completion row",
+      "kind": "custom",
+      "refersTo": "set-completion",
+      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
+      "html": "<div class=\"ds-preview\"><strong>Set 1</strong><div class=\"ds-set\"><label>Weight (kg)<input type=\"number\" value=\"50\" min=\"0\"></label><label>Reps<input type=\"number\" value=\"10\" min=\"1\"></label><label class=\"ds-complete\"><input type=\"checkbox\" checked aria-label=\"Complete set 1\"></label></div></div>",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-set{display:flex;gap:12px;align-items:start}.ds-set label{display:grid;gap:4px;min-width:0;flex:1;font-size:14px}.ds-set input[type=number]{min-width:0;width:100%;padding:12px 0;border:1px solid CanvasText;border-radius:4px;background:Canvas;color:CanvasText;font:400 16px Roboto,Arial,sans-serif}.ds-set .ds-complete{flex:0 0 48px;height:56px;place-items:center}.ds-complete input{accent-color:Highlight}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Circuit station board",
+    "overview": "The user-selected exercise checklist and focused set logger give the interface its character: orderly, practical and calm between sets. An ordered exercise roster, visible completion icons and legible numbers carry the experience. Familiar Android controls make the next action apparent.\n\nCool-neutral Material surfaces and restrained blue emphasis support the personal workout log. Logging takes precedence over decoration. The chosen workflow avoids a motivational dashboard; the declined exploration motifs are not additional design rules.",
+    "keyCharacteristics": [
+      "Native Material 3 controls with system light and dark themes.",
+      "Divided rows, readable quantities and visible completion states.",
+      "Phone-first spacing with scrolling, wrapping and font scaling.",
+      "Sparse emphasis reserved for actions, resuming and recorded progress."
+    ],
+    "rules": [
+      {
+        "name": "The Semantic Pairing Rule",
+        "body": "Resolve colors from the active `ColorScheme` and preserve its foreground/background pairings; the seed is not a substitute for `primary`.",
+        "section": "colors"
+      },
+      {
+        "name": "The Scaling Rule",
+        "body": "Let text grow and layouts reflow; do not reduce type to keep a narrow row fixed.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "**Do** use the active Material theme and semantic color roles.",
+      "**Do** preserve 20 dp page gutters, minimum 48 dp filled/outlined controls and the shared width cap.",
+      "**Do** keep related controls in their existing workflow and allow wrapping, scrolling and font scaling.",
+      "**Do** show completion with icons and text, and quantities with kg, reps, sets or kg·reps.",
+      "**Do** check compact and wide layouts, light/dark themes, keyboard access and crowded data before completion."
+    ],
+    "donts": [
+      "**Don't** use the seed as a guessed rendered role color or hard-code a light palette into dark mode.",
+      "**Don't** add decorative cards around every row or foreign motifs from declined concepts.",
+      "**Don't** replace native state feedback or labelled controls with decorative custom widgets.",
+      "**Don't** present sample review records as real user history."
+    ]
+  }
+}
