@@ -62,6 +62,20 @@ On this development PC, the private release keystore is `C:\Users\jeffe\.android
 
 Other checkouts can build debug APKs without the release key. Release signing is configured only when `android/key.properties` exists; do not distribute an unsigned release APK.
 
+### Publish an APK on GitHub
+
+Use GitHub Releases for downloadable APKs. GitHub Packages hosts dependency/container registries rather than Android app downloads.
+
+1. Commit and push the source matching the signed APK to `main`.
+2. Open [New release](https://github.com/JunHuiChia/GymTracker/releases/new).
+3. Create tag `v0.2.0`, targeting the commit used to build this APK. Use `GymTracker 0.2.0` as the release title.
+4. Describe the changes and attach `artifacts/GymTracker-0.2.0.apk` in the binary files area. APKs stay out of Git history and are uploaded as release assets.
+5. Save a draft to review it, or publish the release when ready. Users download the `.apk` asset; the automatically generated source archives are not installable apps.
+
+For future releases, increment the app version/build number, build with the same signing key, and use a new matching version tag. Never attach the signing keystore or `android/key.properties`.
+
+See GitHub's [release guide](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) and [supported package formats](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
+
 ## Storage limits
 
 Cloud backup and database device transfer are disabled. Uninstalling, clearing app data or losing the phone can lose all workout records; this risk is accepted for this MVP. Manual export/restore, cloud sync, timers, iOS and Play Store publishing are deferred.
@@ -75,3 +89,6 @@ Fifteen database/interface tests and static analysis pass. Native Android 13 int
 
 Final deliverable: artifacts/GymTracker-0.2.0.apk (52,877,913 bytes), version 0.2.0+2. APK Signature Scheme v2 verification passed, and its certificate matches 0.1.0. The signed release installed over 0.1.0 and opened on the Android 13 test emulator with the default renderer. A synthetic saved plan and completed 42.5 kg × 8 workout survived the update; the retained database was reopened and verified (340 kg·reps). Twenty final native captures were reviewed against the approved mockup, including light and dark/enlarged-text layouts. Physical-device upgrade testing remains outstanding.
 
+## License
+
+GymTracker's original source is available under the [MIT License](LICENSE). Bundled Lora fonts retain their separate [SIL Open Font License](assets/fonts/OFL-Lora.txt); dependencies retain their respective licenses.
