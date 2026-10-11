@@ -173,7 +173,7 @@ class _SessionScreenState extends State<SessionScreen> {
                             const Icon(Icons.check_circle_outline),
                         ],
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 4),
                       Align(
                         alignment: Alignment.centerLeft,
                         child: TextButton.icon(
@@ -182,7 +182,7 @@ class _SessionScreenState extends State<SessionScreen> {
                           label: Text(displayDate(context, workout.date)),
                         ),
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 4),
                       if (workout.completed || widget.review)
                         Text(
                           '${workout.setCount} completed sets · ${workout.repCount} reps',
@@ -320,6 +320,13 @@ class _SessionScreenState extends State<SessionScreen> {
                           'Tap an exercise to correct its sets. Changes update your statistics.',
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
+                      if (!workout.completed && !widget.review) ...[
+                        const SizedBox(height: 12),
+                        Text(
+                          '${workout.exercises.where((e) => !e.skipped && e.sets.isNotEmpty && e.done.length == e.sets.length).length} of ${workout.exercises.length} exercises complete · ${workout.setCount} of ${workout.exercises.fold<int>(0, (n, e) => n + e.sets.length)} sets',
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ],
                     ],
                   ),
           ),
@@ -469,41 +476,46 @@ class _SetLoggerState extends State<SetLogger> {
                       ),
                       const SizedBox(height: 16),
                       if (_previous != null) ...[
-                        Text(
-                          'Previous workout',
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        const SizedBox(height: 6),
-                        ..._previous!.done.map(
-                          (s) =>
-                              Text('${number(s.weight!)} kg × ${s.reps} reps'),
-                        ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: TextButton(
-                            onPressed: _busy
-                                ? null
-                                : () async {
-                                    if (!await confirm(
-                                      context,
-                                      'Copy previous sets?',
-                                      'This replaces the current set inputs. Copied sets remain unchecked.',
-                                      action: 'Copy sets',
-                                    )) {
-                                      return;
-                                    }
-                                    await _action(() async {
-                                      await widget.store.copySets(
-                                        e.id,
-                                        _previous!,
-                                      );
-                                      _session = null;
-                                    });
-                                  },
-                            child: const Text('Copy previous sets'),
+                        Material(
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                          borderRadius: BorderRadius.circular(10),
+                          clipBehavior: Clip.antiAlias,
+                          child: ExpansionTile(
+                            tilePadding: const EdgeInsets.symmetric(
+                              horizontal: 14,
+                            ),
+                            childrenPadding: const EdgeInsets.only(bottom: 8),
+                            title: Text(
+                              'Last time: ${_previous!.done.map((s) => '${number(s.weight!)} kg × ${s.reps}').join(' · ')}',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                            children: [
+                              TextButton(
+                                onPressed: _busy
+                                    ? null
+                                    : () async {
+                                        if (!await confirm(
+                                          context,
+                                          'Copy previous sets?',
+                                          'This replaces the current set inputs. Copied sets remain unchecked.',
+                                          action: 'Copy sets',
+                                        )) {
+                                          return;
+                                        }
+                                        await _action(() async {
+                                          await widget.store.copySets(
+                                            e.id,
+                                            _previous!,
+                                          );
+                                          _session = null;
+                                        });
+                                      },
+                                child: const Text('Copy previous sets'),
+                              ),
+                            ],
                           ),
                         ),
-                        const Divider(),
+                        const SizedBox(height: 20),
                       ],
                       if (e.skipped)
                         Padding(
@@ -513,6 +525,22 @@ class _SetLoggerState extends State<SetLogger> {
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
                         ),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Row(
+                          children: [
+                            SizedBox(width: 56),
+                            Expanded(
+                              child: Text('KG', textAlign: TextAlign.center),
+                            ),
+                            SizedBox(width: 12),
+                            Expanded(
+                              child: Text('REPS', textAlign: TextAlign.center),
+                            ),
+                            SizedBox(width: 56),
+                          ],
+                        ),
+                      ),
                       ...e.sets.asMap().entries.map(
                         (entry) => SetInputRow(
                           key: ValueKey('${e.id}-${entry.value.id}'),
@@ -547,43 +575,71 @@ class _SetLoggerState extends State<SetLogger> {
                           child: const Text('Retry saving'),
                         ),
                       ],
-                      Text(
-                        _writes > 0
-                            ? 'Saving…'
-                            : _failed.isEmpty
-                            ? 'All valid entries saved on this device.'
-                            : 'Save failed.',
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
                       const SizedBox(height: 12),
-                      Wrap(
-                        spacing: 12,
-                        runSpacing: 8,
-                        children: [
-                          OutlinedButton.icon(
-                            onPressed: _busy || e.skipped
-                                ? null
-                                : () =>
-                                      _action(() => widget.store.addSet(e.id)),
-                            icon: const Icon(Icons.add),
-                            label: const Text('Add set'),
+                      FilledButton.icon(
+                        style: FilledButton.styleFrom(
+                          backgroundColor: Theme.of(context)
+                              .colorScheme
+                              .primaryContainer,
+                          foregroundColor: Theme.of(context)
+                              .colorScheme
+                              .onPrimaryContainer,
+                        ),
+                        onPressed: _busy || e.skipped
+                            ? null
+                            : () => _action(() => widget.store.addSet(e.id)),
+                        icon: const Icon(Icons.add_circle_outline),
+                        label: const Text('Add set'),
+                      ),
+                      const SizedBox(height: 10),
+                      OutlinedButton.icon(
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: Theme.of(context)
+                              .colorScheme
+                              .onSecondaryContainer,
+                          side: BorderSide(
+                            color: Theme.of(context).colorScheme.secondary,
                           ),
-                          TextButton(
-                            onPressed: _busy
-                                ? null
-                                : () => _action(
-                                    () => widget.store.skipExercise(
-                                      e.id,
-                                      !e.skipped,
-                                    ),
-                                  ),
+                        ),
+                        icon: Icon(
+                          e.skipped
+                              ? Icons.play_arrow_outlined
+                              : Icons.skip_next_outlined,
+                        ),
+                        onPressed: _busy
+                            ? null
+                            : () => _action(
+                                () =>
+                                    widget.store.skipExercise(e.id, !e.skipped),
+                              ),
+                        label: Text(
+                          e.skipped ? 'Resume exercise' : 'Skip exercise',
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        children: [
+                          Icon(
+                            _failed.isEmpty
+                                ? Icons.check_circle
+                                : Icons.error_outline,
+                            size: 16,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
                             child: Text(
-                              e.skipped ? 'Resume exercise' : 'Skip exercise',
+                              _writes > 0
+                                  ? 'Saving…'
+                                  : _failed.isEmpty
+                                  ? 'Valid entries saved on this device'
+                                  : 'Save failed',
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 16),
                       FilledButton(
                         onPressed: _busy ? null : _leave,
                         child: const Text('Back to workout'),
@@ -701,35 +757,53 @@ class _SetInputRowState extends State<SetInputRow> {
   Widget build(BuildContext context) => Form(
     key: _form,
     child: Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.only(bottom: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            children: [
-              Expanded(
-                child: Text(
-                  'Set ${widget.number}',
-                  style: Theme.of(context).textTheme.titleSmall,
-                ),
-              ),
-              IconButton(
-                tooltip: 'Remove set ${widget.number}',
-                onPressed: widget.disabled ? null : widget.onDelete,
-                icon: const Icon(Icons.remove_circle_outline),
-              ),
-            ],
-          ),
-          Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                width: 48,
+                height: 56,
+                child: PopupMenuButton<String>(
+                  enabled: !widget.disabled,
+                  tooltip: 'Options for set ${widget.number}',
+                  onSelected: (_) => widget.onDelete(),
+                  itemBuilder: (_) => [
+                    PopupMenuItem(
+                      value: 'remove',
+                      child: Text('Remove set ${widget.number}'),
+                    ),
+                  ],
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Set ${widget.number}',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      const Icon(Icons.more_horiz, size: 16),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
               Expanded(
                 child: TextFormField(
                   controller: _weight,
                   enabled: !widget.disabled,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleMedium!
+                      .copyWith(fontSize: 20, fontWeight: FontWeight.w600),
                   decoration: const InputDecoration(
                     labelText: 'Weight',
-                    suffixText: 'kg',
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 12,
+                    ),
                   ),
                   keyboardType: const TextInputType.numberWithOptions(
                     decimal: true,
@@ -747,7 +821,17 @@ class _SetInputRowState extends State<SetInputRow> {
                 child: TextFormField(
                   controller: _reps,
                   enabled: !widget.disabled,
-                  decoration: const InputDecoration(labelText: 'Reps'),
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleMedium!
+                      .copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+                  decoration: const InputDecoration(
+                    labelText: 'Reps',
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 12,
+                    ),
+                  ),
                   keyboardType: TextInputType.number,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (_) =>

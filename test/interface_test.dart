@@ -49,13 +49,25 @@ void main() {
   testWidgets(
     'exercises can be opened out of order and saved sets stay attached to the chosen exercise',
     (tester) async {
+      tester.view.physicalSize = const Size(360, 800);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
       final exercises = (await tester.runAsync(() => store.exercises()))!;
       final id = (await tester.runAsync(() async {
         await store.savePlan(
           'Flexible workout',
           exercises.take(3).map((e) => PlanEntry(e, sets: 1)).toList(),
         );
-        return store.startSession((await store.plans()).single, DateTime.now());
+        final plan = (await store.plans()).single;
+        final prior = await store.startSession(
+          plan,
+          DateTime.now().subtract(const Duration(days: 7)),
+        );
+        final oldSet = (await store.session(prior)).exercises[2].sets.first;
+        await store.saveSet(oldSet.id, 45, 8, true);
+        await store.finishSession(prior);
+        return store.startSession(plan, DateTime.now());
       }))!;
       Future<void> settle([Future<void> Function()? action]) async {
         await tester.runAsync(() async {
@@ -202,13 +214,19 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(find.text('1440 kg·reps'), findsOneWidget);
-      final colors = appTheme(brightness).colorScheme;
-      for (final chip in tester.widgetList<ChoiceChip>(
-        find.byType(ChoiceChip),
-      )) {
-        final ink = chip.labelStyle!.color!.computeLuminance();
-        final ground = (chip.selected ? colors.primary : colors.surface)
+      expect(find.text('50 kg'), findsWidgets);
+      final control = tester.widget<SegmentedButton<String>>(
+        find.byType(SegmentedButton<String>),
+      );
+      for (final states in [
+        <WidgetState>{},
+        {WidgetState.selected},
+      ]) {
+        final ink = control.style!.foregroundColor!
+            .resolve(states)!
+            .computeLuminance();
+        final ground = control.style!.backgroundColor!
+            .resolve(states)!
             .computeLuminance();
         final ratio =
             ((ink > ground ? ink : ground) + 0.05) /

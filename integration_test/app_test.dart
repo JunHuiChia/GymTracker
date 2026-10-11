@@ -85,6 +85,21 @@ void main() {
       await tester.tap(find.text('Save plan'));
       await tester.pumpAndSettle();
       expect(find.text('Sample upper body'), findsOneWidget);
+      // Recorded sample history gives the redesign real prior-set evidence and a trend.
+      final plan = (await store.plans()).single;
+      for (final sample in [(21, 45.0), (7, 47.5)]) {
+        final prior = await store.startSession(
+          plan,
+          DateTime.now().subtract(Duration(days: sample.$1)),
+        );
+        final priorSet = (await store.session(prior))
+            .exercises
+            .first
+            .sets
+            .first;
+        await store.saveSet(priorSet.id, sample.$2, 10, true);
+        await store.finishSession(prior);
+      }
       await capture('workouts');
       await tester.tap(find.text('Start workout'));
       await waitFor(find.text('Choose any exercise'));
@@ -176,14 +191,18 @@ void main() {
       await tester.pumpAndSettle();
       await capture('history');
       await tester.tap(find.text('Stats'));
-      await waitFor(find.text('1440 kg·reps'));
-      expect(find.text('1440 kg·reps'), findsOneWidget);
+      await waitFor(find.text('50 kg'));
       await capture('stats');
+      await tester.tap(find.text('Volume'));
+      await waitFor(find.text('1440 kg·reps'));
+      expect(find.text('1440 kg·reps'), findsWidgets);
+      await tester.tap(find.text('Weight'));
+      await tester.pumpAndSettle();
       await tester.drag(find.byType(ListView).first, const Offset(0, -350));
       await tester.pumpAndSettle();
       await capture('chart');
       expect(tester.takeException(), isNull);
-      expect((await store.history()).single.volume, 1440);
+      expect((await store.history()).first.volume, 1440);
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
       await store.database.close();

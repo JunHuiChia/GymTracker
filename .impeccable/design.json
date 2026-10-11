@@ -1,69 +1,199 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-11T21:36:23.854Z",
+  "generatedAt": "2026-10-11T22:39:30.5038744Z",
   "title": "Design System: GymTracker",
   "extensions": {
     "colorMeta": {
-      "primary-seed": {
+      "olive": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
         "role": "primary",
-        "displayName": "Deep blue seed",
-        "tonalRamp": [
-          "oklch(15.00% 0.15308 259.86)",
-          "oklch(26.43% 0.15308 259.86)",
-          "oklch(37.86% 0.15308 259.86)",
-          "oklch(49.29% 0.15308 259.86)",
-          "oklch(60.71% 0.15308 259.86)",
-          "oklch(72.14% 0.15308 259.86)",
-          "oklch(83.57% 0.15308 259.86)",
-          "oklch(95.00% 0.15308 259.86)"
-        ],
-        "purpose": "Synthetic OKLCH display ramp of the seed for this panel only, with gamut mapping delegated to the browser. These are not generated Material role colors and must never be copied into application ColorScheme."
+        "displayName": "olive"
+      },
+      "forest": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "forest"
+      },
+      "cream": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "cream"
+      },
+      "terracotta": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "secondary",
+        "displayName": "terracotta"
+      },
+      "tan": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "tertiary",
+        "displayName": "tan"
+      },
+      "light-primary-container": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "primary",
+        "displayName": "light primary container"
+      },
+      "light-secondary-container": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "secondary",
+        "displayName": "light secondary container"
+      },
+      "light-on-secondary-container": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "secondary",
+        "displayName": "light on secondary container"
+      },
+      "light-on-surface-variant": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "light on surface variant"
+      },
+      "light-surface-container-lowest": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "light surface container lowest"
+      },
+      "light-surface-container-low": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "light surface container low"
+      },
+      "light-surface-container": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "light surface container"
+      },
+      "light-surface-container-high": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "light surface container high"
+      },
+      "light-surface-container-highest": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "light surface container highest"
+      },
+      "light-outline": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "light outline"
+      },
+      "light-outline-variant": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "light outline variant"
+      },
+      "light-error": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "light error"
+      },
+      "dark-primary": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "primary",
+        "displayName": "dark primary"
+      },
+      "dark-primary-container": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "primary",
+        "displayName": "dark primary container"
+      },
+      "dark-secondary": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "secondary",
+        "displayName": "dark secondary"
+      },
+      "dark-secondary-container": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "secondary",
+        "displayName": "dark secondary container"
+      },
+      "dark-on-surface-variant": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "dark on surface variant"
+      },
+      "dark-surface-container-lowest": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "dark surface container lowest"
+      },
+      "dark-surface-container-low": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "dark surface container low"
+      },
+      "dark-surface-container": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "dark surface container"
+      },
+      "dark-surface-container-high": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "dark surface container high"
+      },
+      "dark-surface-container-highest": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "dark surface container highest"
+      },
+      "dark-outline": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "dark outline"
+      },
+      "dark-outline-variant": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "dark outline variant"
+      },
+      "dark-error": {
+        "purpose": "Exact authored Flutter theme value; light/dark role pairing is documented in DESIGN.md. No synthetic tonal ramp.",
+        "role": "neutral",
+        "displayName": "dark error"
       }
     },
     "typographyMeta": {
+      "headline-large": {
+        "displayName": "headline large",
+        "purpose": "Bundled local Lora; serif hierarchy with brightness-aware copper or contextual ink."
+      },
+      "headline-medium": {
+        "displayName": "headline medium",
+        "purpose": "Bundled local Lora; serif hierarchy with brightness-aware copper or contextual ink."
+      },
       "headline-small": {
-        "displayName": "Headline Small",
-        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+        "displayName": "headline small",
+        "purpose": "Bundled local Lora; serif hierarchy with brightness-aware copper or contextual ink."
       },
       "title-large": {
-        "displayName": "Title Large",
-        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+        "displayName": "title large",
+        "purpose": "Bundled local Lora; serif hierarchy with brightness-aware copper or contextual ink."
       },
       "title-medium": {
-        "displayName": "Title Medium",
-        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
-      },
-      "title-small": {
-        "displayName": "Title Small",
-        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
-      },
-      "body-large": {
-        "displayName": "Body Large",
-        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+        "displayName": "title medium",
+        "purpose": "Native Android Roboto through Flutter Material typography; system-scaled controls and supporting text."
       },
       "body-medium": {
-        "displayName": "Body Medium",
-        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+        "displayName": "body medium",
+        "purpose": "Native Android Roboto through Flutter Material typography; system-scaled controls and supporting text."
       },
       "body-small": {
-        "displayName": "Body Small",
-        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+        "displayName": "body small",
+        "purpose": "Native Android Roboto through Flutter Material typography; system-scaled controls and supporting text."
       },
       "label-large": {
-        "displayName": "Label Large",
-        "purpose": "Installed Material 2021 English-like base role; Android Roboto, scaled by the system. See DESIGN.md for implemented uses."
+        "displayName": "label large",
+        "purpose": "Native Android Roboto through Flutter Material typography; system-scaled controls and supporting text."
       }
     },
     "shadows": [
       {
-        "name": "filled-button-rest",
-        "value": "0dp",
-        "purpose": "Inherited native Flutter Material elevation; not a CSS box-shadow."
-      },
-      {
-        "name": "filled-button-hover",
+        "name": "floating-action",
         "value": "1dp",
-        "purpose": "Inherited native Flutter Material elevation when hovered; not a CSS box-shadow."
+        "purpose": "Authored Flutter FAB elevation, not a CSS shadow."
       }
     ],
     "motion": [],
@@ -81,208 +211,153 @@
         "typography": "sp-equivalent base values, scaled through MediaQuery.textScaler"
       },
       "pageMaxWidth": "840dp",
-      "themeAuthority": "lib/main.dart: appTheme; ColorScheme.fromSeed for light and dark; no fixed generated-role hex values extracted",
+      "themeAuthority": "lib/theme.dart: olive-seeded Material 3 with explicit light/dark role overrides and bundled Lora heading styles",
       "filterReflow": "lib/screens/exercise_picker.dart: filters stack when textScaler.scale(14) > 16",
-      "componentPreviewPolicy": "All HTML/CSS components below are nonshipping browser illustrations. They use browser system colors, not application colors. Application rendering and states remain in native Flutter widgets.",
+      "componentPreviewPolicy": "HTML/CSS previews are nonshipping light-theme illustrations of authored colors and composition. Browser geometry, fonts and states approximate native Flutter; native screenshots are the fidelity evidence.",
       "motionAuthority": "No application-specific motion overrides; inherited Flutter ripple, state layers, routes and dialogs."
     },
     "sourceMap": [
       {
-        "source": "lib/main.dart",
         "owns": [
-          "primary-seed",
-          "Material3",
-          "brightness-dependent ColorScheme",
-          "48dp button minimum",
-          "outlined inputs",
-          "start-aligned app bars"
-        ]
+          "authored light/dark roles",
+          "Lora hierarchy",
+          "themed field and button geometry",
+          "navigation and FAB treatments"
+        ],
+        "source": "lib/theme.dart"
       },
       {
-        "source": "lib/screens/common.dart",
         "owns": [
-          "840dp max PageBody",
-          "empty-state pattern",
-          "year-aware dates"
-        ]
+          "local Lora font assets"
+        ],
+        "source": "pubspec.yaml"
       },
       {
-        "source": "lib/screens/home_screen.dart",
+        "owns": [
+          "840dp PageBody cap",
+          "empty states",
+          "locale dates"
+        ],
+        "source": "lib/screens/common.dart"
+      },
+      {
         "owns": [
           "700dp rail breakpoint",
-          "navigation destinations",
-          "resume strip",
-          "plan rows",
-          "FAB clearance"
-        ]
+          "primary resume strip",
+          "outlined plan cards"
+        ],
+        "source": "lib/screens/home_screen.dart"
       },
       {
-        "source": "lib/screens/exercise_picker.dart",
         "owns": [
-          "integrated search/filters",
-          "font-scale filter stacking",
-          "catalogue rows"
-        ]
+          "any-order checklist",
+          "actual-set progress",
+          "aligned KG/REPS table",
+          "last-time expansion",
+          "stacked logger actions"
+        ],
+        "source": "lib/screens/session_screen.dart"
       },
       {
-        "source": "lib/screens/session_screen.dart",
         "owns": [
-          "exercise checklist",
-          "set row",
-          "completion box",
-          "logger actions",
-          "semantic completion labels"
-        ]
+          "compact selectors",
+          "equal number-first totals",
+          "native contiguous SegmentedButton",
+          "180dp copper chart",
+          "exact records"
+        ],
+        "source": "lib/screens/stats_screen.dart"
       },
       {
-        "source": "lib/screens/plan_editor.dart",
         "owns": [
-          "ordered exercise rows",
-          "keyboard-accessible ordering menu",
-          "bottom save action"
-        ]
+          "integrated catalogue search and filters",
+          "font-scale filter stacking"
+        ],
+        "source": "lib/screens/exercise_picker.dart"
       },
       {
-        "source": "lib/screens/stats_screen.dart",
         "owns": [
-          "wrapping totals and chips",
-          "chart geometry",
-          "exact recorded values",
-          "chart semantics"
-        ]
-      },
-      {
-        "source": "S:/Flutter/flutter/packages/flutter/lib/src/material/typography.dart",
-        "owns": [
-          "Roboto Android family",
-          "Material 2021 English-like typography metrics"
-        ]
-      },
-      {
-        "source": "S:/Flutter/flutter/packages/flutter/lib/src/material/filled_button.dart",
-        "owns": [
-          "native StadiumBorder",
-          "default state layers",
-          "native hover elevation"
-        ]
-      },
-      {
-        "source": "S:/Flutter/flutter/packages/flutter/lib/src/material/input_border.dart",
-        "owns": [
-          "default 4dp OutlineInputBorder radius"
-        ]
-      },
-      {
-        "source": ".impeccable/surface-contract.md",
-        "owns": [
-          "user-selected Circuit station board metaphor",
-          "exercise checklist and focused logger direction"
-        ]
-      },
-      {
-        "source": ".impeccable/review/",
-        "owns": [
-          "light-phone and dark-large-phone rendering evidence; final recaptures and review verdict maintained separately"
-        ]
+          "user-approved visual reference"
+        ],
+        "source": "output/design-mockups/04-field-notes-terracotta.png"
       }
     ]
   },
   "components": [
     {
-      "name": "Filled button",
-      "kind": "button",
       "refersTo": "button-filled",
-      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
-      "html": "<div class=\"ds-preview\"><button class=\"ds-filled\">Save plan</button></div>",
-      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-filled{min-height:48px;min-width:48px;padding:0 24px;border:0;border-radius:999px;background:Highlight;color:HighlightText;font:500 14px Roboto,Arial,sans-serif}"
-    },
-    {
-      "name": "Outlined button",
+      "name": "Olive filled action",
+      "html": "<div class=\"ds-preview\"><button class=\"ds-filled\">Back to workout</button></div>",
       "kind": "button",
-      "refersTo": "button-outlined",
-      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
-      "html": "<div class=\"ds-preview\"><button class=\"ds-outlined\">Add set</button></div>",
-      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-outlined{min-height:48px;min-width:48px;padding:0 24px;border:1px solid CanvasText;border-radius:999px;background:Canvas;color:CanvasText;font:500 14px Roboto,Arial,sans-serif}"
+      "description": "Nonshipping light-theme browser illustration. Authored Flutter colors and composition; browser rendering and state feedback approximate native widgets. Lora is local in the APK; the browser serif is only a fallback illustration.",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:#283618;background:#fefae0;padding:16px}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid #606c38;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-filled{min-height:52px;min-width:48px;padding:12px 24px;border:0;border-radius:12px;background:#606c38;color:#fefae0;font:500 16px Roboto,Arial,sans-serif}"
     },
     {
-      "name": "Text button",
-      "kind": "button",
-      "description": "Nonshipping browser illustration of a native TextButton. Browser system colors and approximate CSS do not encode exact Flutter rendering.",
-      "html": "<div class=\"ds-preview\"><button class=\"ds-text\">Skip exercise</button></div>",
-      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;background:Canvas;color:CanvasText}.ds-text{min-height:48px;border:0;padding:8px 12px;background:Canvas;color:Highlight;font:500 14px Roboto,Arial,sans-serif}.ds-text:hover{background:ButtonFace}.ds-text:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-text:active{filter:brightness(.9)}"
-    },
-    {
-      "name": "Outlined field",
-      "kind": "input",
       "refersTo": "input-outlined",
-      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
-      "html": "<div class=\"ds-preview\"><label class=\"ds-field\">Weight (kg)<input type=\"number\" min=\"0\" value=\"50\"></label></div>",
-      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-field{display:grid;gap:4px;font-size:14px}.ds-field input{border:1px solid CanvasText;border-radius:4px;padding:16px;background:Canvas;color:CanvasText;font:400 16px Roboto,Arial,sans-serif}"
+      "name": "Outlined numeric field",
+      "html": "<div class=\"ds-preview\"><label class=\"ds-field\">KG<input aria-label=\"Weight\" type=\"number\" min=\"0\" value=\"50\"></label></div>",
+      "kind": "input",
+      "description": "Nonshipping light-theme browser illustration. Authored Flutter colors and composition; browser rendering and state feedback approximate native widgets. Lora is local in the APK; the browser serif is only a fallback illustration.",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:#283618;background:#fefae0;padding:16px}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid #606c38;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-field{display:grid;gap:8px;text-align:center;font-size:14px}.ds-field input{min-width:0;padding:12px 8px;border:1px solid #7b855e;border-radius:10px;background:#fffdf0;color:#283618;text-align:center;font:600 20px Roboto,Arial,sans-serif}"
     },
     {
-      "name": "Navigation destinations",
-      "kind": "nav",
-      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
-      "html": "<nav class=\"ds-preview ds-nav\" aria-label=\"Main\"><button aria-current=\"page\">Workouts</button><button>History</button><button>Stats</button></nav>",
-      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-nav{display:flex;gap:8px;flex-wrap:wrap}.ds-nav button{min-height:48px;padding:8px 16px;border:0;background:Canvas;color:CanvasText;border-radius:16px;font:500 14px Roboto,Arial,sans-serif}.ds-nav button[aria-current]{background:Highlight;color:HighlightText}"
-    },
-    {
-      "name": "Metric choice chip",
-      "kind": "chip",
-      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
-      "html": "<div class=\"ds-preview ds-chips\"><button aria-pressed=\"true\">Weight</button><button aria-pressed=\"false\">Reps</button></div>",
-      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-chips{display:flex;gap:8px;flex-wrap:wrap}.ds-chips button{padding:8px 16px;border:1px solid CanvasText;border-radius:8px;background:Canvas;color:CanvasText;font:500 14px Roboto,Arial,sans-serif}.ds-chips button[aria-pressed=true]{background:Highlight;color:HighlightText}"
-    },
-    {
-      "name": "Resume strip",
-      "kind": "card",
-      "refersTo": "resume-strip",
-      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
-      "html": "<div class=\"ds-preview\"><button class=\"ds-resume\"><strong>Resume workout</strong><span>3 saved sets</span></button></div>",
-      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-resume{display:grid;text-align:start;gap:4px;width:100%;padding:16px;border:0;border-radius:16px;background:Highlight;color:HighlightText;font:400 16px Roboto,Arial,sans-serif}"
-    },
-    {
-      "name": "Set completion row",
+      "refersTo": "metric-segments",
+      "name": "Contiguous metric segments",
+      "html": "<div class=\"ds-preview\"><div class=\"ds-segments\" role=\"group\" aria-label=\"Progress metric\"><button aria-pressed=\"true\">Weight</button><button aria-pressed=\"false\">Reps</button><button aria-pressed=\"false\">Sets</button><button aria-pressed=\"false\">Volume</button></div></div>",
       "kind": "custom",
-      "refersTo": "set-completion",
-      "description": "Nonshipping browser illustration of the native pattern. Browser system colors and approximate CSS do not encode the Flutter ColorScheme or exact native rendering.",
-      "html": "<div class=\"ds-preview\"><strong>Set 1</strong><div class=\"ds-set\"><label>Weight (kg)<input type=\"number\" value=\"50\" min=\"0\"></label><label>Reps<input type=\"number\" value=\"10\" min=\"1\"></label><label class=\"ds-complete\"><input type=\"checkbox\" checked aria-label=\"Complete set 1\"></label></div></div>",
-      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:CanvasText;background:Canvas}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid Highlight;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-set{display:flex;gap:12px;align-items:start}.ds-set label{display:grid;gap:4px;min-width:0;flex:1;font-size:14px}.ds-set input[type=number]{min-width:0;width:100%;padding:12px 0;border:1px solid CanvasText;border-radius:4px;background:Canvas;color:CanvasText;font:400 16px Roboto,Arial,sans-serif}.ds-set .ds-complete{flex:0 0 48px;height:56px;place-items:center}.ds-complete input{accent-color:Highlight}"
+      "description": "Nonshipping light-theme browser illustration. Authored Flutter colors and composition; browser rendering and state feedback approximate native widgets. Lora is local in the APK; the browser serif is only a fallback illustration. The application uses native SegmentedButton; these browser buttons illustrate only its selected and unselected appearance.",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:#283618;background:#fefae0;padding:16px}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid #606c38;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-segments{display:flex}.ds-segments button{flex:1;min-width:0;min-height:48px;padding:8px;border:1px solid #d7d7b9;background:#eeead2;color:#283618;font:500 14px Roboto,Arial,sans-serif}.ds-segments button+button{border-left:0}.ds-segments button:first-child{border-radius:8px 0 0 8px}.ds-segments button:last-child{border-radius:0 8px 8px 0}.ds-segments button[aria-pressed=true]{background:#606c38;color:#fefae0}"
+    },
+    {
+      "name": "Number-first totals",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:#283618;background:#fefae0;padding:16px}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid #606c38;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-totals{display:flex;gap:12px}.ds-total{flex:1;min-width:0;padding:12px;border-radius:10px;background:#eeead2;color:#283618;display:grid;gap:4px}.ds-total strong{font:700 22px Lora,Georgia,serif}.ds-total span{font-size:14px}",
+      "html": "<div class=\"ds-preview ds-totals\"><div class=\"ds-total\"><strong>12</strong><span>workouts</span></div><div class=\"ds-total\"><strong>96</strong><span>sets</span></div></div>",
+      "kind": "card",
+      "description": "Nonshipping light-theme browser illustration. Authored Flutter colors and composition; browser rendering and state feedback approximate native widgets. Lora is local in the APK; the browser serif is only a fallback illustration."
+    },
+    {
+      "refersTo": "resume-strip",
+      "name": "Primary resume strip",
+      "html": "<div class=\"ds-preview\"><button class=\"ds-resume\"><strong>Resume Full body</strong><span>Today · 3 saved sets</span></button></div>",
+      "kind": "card",
+      "description": "Nonshipping light-theme browser illustration. Authored Flutter colors and composition; browser rendering and state feedback approximate native widgets. Lora is local in the APK; the browser serif is only a fallback illustration.",
+      "css": ".ds-preview{font-family:Roboto,Arial,sans-serif;color:#283618;background:#fefae0;padding:16px}.ds-preview button:focus-visible,.ds-preview input:focus-visible{outline:2px solid #606c38;outline-offset:3px}.ds-preview button:hover{filter:brightness(.95)}.ds-preview button:active{filter:brightness(.9)}.ds-resume{display:grid;gap:4px;text-align:start;width:100%;padding:16px;border:0;border-radius:16px;background:#606c38;color:#fefae0}.ds-resume strong{font:700 22px Lora,Georgia,serif}.ds-resume span{font:400 14px Roboto,Arial,sans-serif}"
     }
   ],
   "narrative": {
-    "northStar": "Circuit station board",
-    "overview": "The user-selected exercise checklist and focused set logger give the interface its character: orderly, practical and calm between sets. An ordered exercise roster, visible completion icons and legible numbers carry the experience. Familiar Android controls make the next action apparent.\n\nCool-neutral Material surfaces and restrained blue emphasis support the personal workout log. Logging takes precedence over decoration. The chosen workflow avoids a motivational dashboard; the declined exploration motifs are not additional design rules.",
-    "keyCharacteristics": [
-      "Native Material 3 controls with system light and dark themes.",
-      "Divided rows, readable quantities and visible completion states.",
-      "Phone-first spacing with scrolling, wrapping and font scaling.",
-      "Sparse emphasis reserved for actions, resuming and recorded progress."
+    "northStar": "Field Notes with terracotta",
+    "donts": [
+      "**Don't** restore the obsolete blue identity or replace the approved serif headings with condensed capitals.",
+      "**Don't** impose exercise sequence or show a Next exercise action.",
+      "**Don't** substitute wrapped metric chips or oversized selectors for the approved compact Stats composition.",
+      "**Don't** replace native state feedback, validation or accessible labels with decorative controls.",
+      "**Don't** present sample review records as personal history or browser illustrations as shipping Flutter widgets."
     ],
+    "keyCharacteristics": [
+      "Warm paper and ink roles, olive actions and copper progress accents.",
+      "Bundled Lora headings with native Android sans-serif controls.",
+      "Compact aligned numeric entry and clear completion states.",
+      "Familiar Material 3 interaction, font scaling and phone-first scrolling."
+    ],
+    "overview": "A warm training logbook pairs cream paper, forest ink and olive controls with restrained terracotta headings and progress accents. Lora serif headings give the log its character; native sans-serif controls keep set entry clear between exercises.\n\nThe approved reference is `output/design-mockups/04-field-notes-terracotta.png`. The working Flutter screens carry its outlined containers, compact set table and chart-led statistics hierarchy. Light and dark themes preserve the same identity. Exercise numbers never impose a training sequence; numbers identify sets only.",
     "rules": [
       {
         "name": "The Semantic Pairing Rule",
-        "body": "Resolve colors from the active `ColorScheme` and preserve its foreground/background pairings; the seed is not a substitute for `primary`.",
+        "body": "Resolve colors from the active `ColorScheme` and preserve its foreground/background pairings in both themes.",
         "section": "colors"
       },
       {
         "name": "The Scaling Rule",
-        "body": "Let text grow and layouts reflow; do not reduce type to keep a narrow row fixed.",
+        "body": "Honor system text scaling and scrolling; do not shrink text to force a narrow row.",
         "section": "typography"
       }
     ],
     "dos": [
-      "**Do** use the active Material theme and semantic color roles.",
-      "**Do** preserve 20 dp page gutters, minimum 48 dp filled/outlined controls and the shared width cap.",
-      "**Do** keep related controls in their existing workflow and allow wrapping, scrolling and font scaling.",
-      "**Do** show completion with icons and text, and quantities with kg, reps, sets or kg·reps.",
-      "**Do** check compact and wide layouts, light/dark themes, keyboard access and crowded data before completion."
-    ],
-    "donts": [
-      "**Don't** use the seed as a guessed rendered role color or hard-code a light palette into dark mode.",
-      "**Don't** add decorative cards around every row or foreign motifs from declined concepts.",
-      "**Don't** replace native state feedback or labelled controls with decorative custom widgets.",
-      "**Don't** present sample review records as real user history."
+      "**Do** use brightness-aware semantic roles and the locally bundled Lora headings.",
+      "**Do** preserve aligned numeric columns, equal Stats totals and contiguous native metric segments.",
+      "**Do** keep related entry actions and previous-workout information in the logger workflow.",
+      "**Do** support any-order exercise choice, text scaling, native focus and scrolling.",
+      "**Do** check light/dark, compact/wide, enlarged text, keyboard access and crowded records before completion."
     ]
   }
 }

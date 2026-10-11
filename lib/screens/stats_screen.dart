@@ -90,7 +90,11 @@ class _StatsScreenState extends State<StatsScreen> {
         DropdownButtonFormField<String>(
           initialValue: _range,
           isExpanded: true,
-          decoration: const InputDecoration(labelText: 'Date range'),
+          decoration: const InputDecoration(
+            labelText: 'Date range',
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+            contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          ),
           items: [
             'Last 3 months',
             'All time',
@@ -98,15 +102,14 @@ class _StatsScreenState extends State<StatsScreen> {
           onChanged: (value) => setState(() => _range = value!),
         ),
         const SizedBox(height: 20),
-        Wrap(
-          spacing: 24,
-          runSpacing: 16,
+        Row(
           children: [
-            _Total(label: 'Workouts', value: '${sessions.length}'),
-            _Total(label: 'Completed sets', value: '$totalSets'),
-            _Total(
-              label: 'Training volume',
-              value: '${number(volume)} kg·reps',
+            Expanded(
+              child: _Total(label: 'workouts', value: '${sessions.length}'),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: _Total(label: 'sets', value: '$totalSets'),
             ),
           ],
         ),
@@ -115,7 +118,11 @@ class _StatsScreenState extends State<StatsScreen> {
           key: ValueKey('exercise-$selectedId'),
           initialValue: selectedId,
           isExpanded: true,
-          decoration: const InputDecoration(labelText: 'Exercise'),
+          decoration: const InputDecoration(
+            labelText: 'Exercise',
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+            contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          ),
           items: exerciseNames.entries
               .map(
                 (e) => DropdownMenuItem(
@@ -127,32 +134,40 @@ class _StatsScreenState extends State<StatsScreen> {
           onChanged: (value) => setState(() => _exerciseId = value),
         ),
         const SizedBox(height: 12),
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          children:
+        SegmentedButton<String>(
+          expandedInsets: EdgeInsets.zero,
+          showSelectedIcon: false,
+          selected: {_metric},
+          onSelectionChanged: (values) =>
+              setState(() => _metric = values.single),
+          style: ButtonStyle(
+            minimumSize: const WidgetStatePropertyAll(Size(0, 48)),
+            padding: const WidgetStatePropertyAll(
+              EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+            ),
+            backgroundColor: WidgetStateProperty.resolveWith(
+              (states) => states.contains(WidgetState.selected)
+                  ? colors.primary
+                  : colors.primaryContainer,
+            ),
+            foregroundColor: WidgetStateProperty.resolveWith(
+              (states) => states.contains(WidgetState.selected)
+                  ? colors.onPrimary
+                  : colors.onSurface,
+            ),
+            side: WidgetStatePropertyAll(
+              BorderSide(color: colors.outlineVariant),
+            ),
+            shape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            ),
+          ),
+          segments:
               (bodyweight
                       ? ['Reps', 'Sets']
                       : ['Weight', 'Reps', 'Sets', 'Volume'])
-                  .map(
-                    (s) => ChoiceChip(
-                      label: Text(s),
-                      selected: s == _metric,
-                      labelStyle: TextStyle(
-                        color: s == _metric
-                            ? colors.onPrimary
-                            : colors.onSurface,
-                      ),
-                      onSelected: (_) => setState(() => _metric = s),
-                    ),
-                  )
+                  .map((s) => ButtonSegment(value: s, label: Text(s)))
                   .toList(),
-        ),
-        const SizedBox(height: 12),
-        Text(
-          bodyweight
-              ? 'Bodyweight progress uses reps and sets. Added kg measures external load only.'
-              : 'Volume sums kg × reps for completed sets. Compare the same exercise and equipment.',
         ),
         const SizedBox(height: 20),
         if (points.isEmpty)
@@ -182,7 +197,7 @@ class _StatsScreenState extends State<StatsScreen> {
             label:
                 '$_metric progress chart, ${points.length} sessions. Exact values are listed below.',
             child: SizedBox(
-              height: 220,
+              height: 180,
               child: LineChart(
                 LineChartData(
                   minX: 0,
@@ -190,7 +205,12 @@ class _StatsScreenState extends State<StatsScreen> {
                   minY: 0,
                   maxY: best == 0 ? 1 : best * 1.2,
                   borderData: FlBorderData(show: false),
-                  gridData: FlGridData(show: true, drawVerticalLine: false),
+                  gridData: FlGridData(
+                    show: true,
+                    drawVerticalLine: false,
+                    getDrawingHorizontalLine: (_) =>
+                        FlLine(color: colors.outlineVariant, strokeWidth: 1),
+                  ),
                   titlesData: FlTitlesData(
                     show: true,
                     topTitles: const AxisTitles(
@@ -222,7 +242,12 @@ class _StatsScreenState extends State<StatsScreen> {
                       spots: points
                           .asMap()
                           .entries
-                          .map((e) => FlSpot(e.key.toDouble(), _value(e.value)))
+                          .map(
+                            (e) => FlSpot(
+                              points.length == 1 ? 0.5 : e.key.toDouble(),
+                              _value(e.value),
+                            ),
+                          )
                           .toList(),
                     ),
                   ],
@@ -230,20 +255,30 @@ class _StatsScreenState extends State<StatsScreen> {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Text(displayDate(context, points.first.session.date)),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  displayDate(context, points.last.session.date),
-                  textAlign: TextAlign.end,
+          if (points.length == 1)
+            Center(child: Text(displayDate(context, points.first.session.date)))
+          else
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(displayDate(context, points.first.session.date)),
                 ),
-              ),
-            ],
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    displayDate(context, points.last.session.date),
+                    textAlign: TextAlign.end,
+                  ),
+                ),
+              ],
+            ),
+          const SizedBox(height: 12),
+          Text(
+            bodyweight
+                ? 'Bodyweight progress uses reps and sets. Added kg measures external load only.'
+                : 'Volume = completed kg × reps. Compare the same exercise and equipment.',
+            style: Theme.of(context).textTheme.bodySmall,
           ),
           const SizedBox(height: 24),
           Text(
@@ -277,6 +312,15 @@ class _StatsScreenState extends State<StatsScreen> {
           ),
         ],
         const SizedBox(height: 20),
+        Text(
+          'Training volume in this range',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+        const SizedBox(height: 4),
+        Text(
+          '${number(volume)} kg·reps',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         const Divider(),
         ExpansionTile(
           tilePadding: EdgeInsets.zero,
@@ -309,14 +353,14 @@ class _Total extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: Theme.of(context).textTheme.bodyMedium),
-        const SizedBox(height: 4),
         Text(
           value,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
             color: Theme.of(context).colorScheme.onPrimaryContainer,
           ),
         ),
+        const SizedBox(height: 4),
+        Text(label, style: Theme.of(context).textTheme.bodyMedium),
       ],
     ),
   );
