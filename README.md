@@ -8,16 +8,16 @@ Current Android app screens using sample workout data: choose exercises in any o
 
 ### Light mode
 
-| Workout checklist | Set logger | Exercise progress |
-| :---: | :---: | :---: |
+|                                                                               Workout checklist                                                                               |                                                                             Set logger                                                                             |                                                                      Exercise progress                                                                      |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | <img src=".impeccable/review/fieldnotes-light-phone-checklist.png" alt="Light-mode workout checklist with freely selectable exercises and completion indicators" width="240"> | <img src=".impeccable/review/fieldnotes-light-phone-logger.png" alt="Light-mode set logger with kg, reps, completed sets and previous workout values" width="240"> | <img src=".impeccable/review/fieldnotes-light-phone-stats.png" alt="Light-mode exercise progress with weight trend chart and metric selectors" width="240"> |
 
 ### Dark mode
 
 These captures also show the app with enlarged system text.
 
-| Workout checklist | Set logger | Exercise progress |
-| :---: | :---: | :---: |
+|                                                             Workout checklist                                                             |                                                               Set logger                                                                |                                                              Exercise progress                                                              |
+| :---------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
 | <img src=".impeccable/review/fieldnotes-dark-large-phone-checklist.png" alt="Dark-mode workout checklist with enlarged text" width="240"> | <img src=".impeccable/review/fieldnotes-dark-large-phone-logger.png" alt="Dark-mode kg and reps logger with enlarged text" width="240"> | <img src=".impeccable/review/fieldnotes-dark-large-phone-stats.png" alt="Dark-mode exercise progress chart with enlarged text" width="240"> |
 
 ## Using the app
@@ -56,38 +56,17 @@ Emulator screenshots are written under `.impeccable/review`. These contain synth
 
 Build with `flutter build apk --release`. The universal APK is `build/app/outputs/flutter-apk/app-release.apk`. Copy it to the Android phone and allow installation from the app used to open the APK when Android requests it. Install future updates over the existing app without uninstalling.
 
-Application ID: `dev.jeffe.gym_tracker`. Current version: `0.2.0+2`, updating the initial `0.1.0+1`. Use the same application ID and release signing key for updates. The database schema is unchanged.
+Application ID: `gym_tracker`. Current version: `0.2.0+2`, updating the initial `0.1.0+1`. Use the same application ID and release signing key for updates. The database schema is unchanged.
 
-On this development PC, the private release keystore is `C:\Users\jeffe\.android\signing\gymtracker-release.jks`; its password/configuration is in the ignored `android/key.properties`. Keep both securely backed up and out of shared source archives. A different signing key cannot update the installed APK. Debug builds use a different key and cannot be installed over the release build without uninstalling; use release builds for personal workout history.
+Keep both securely backed up and out of shared source archives. A different signing key cannot update the installed APK. Debug builds use a different key and cannot be installed over the release build without uninstalling; use release builds for personal workout history.
 
 Other checkouts can build debug APKs without the release key. Release signing is configured only when `android/key.properties` exists; do not distribute an unsigned release APK.
-
-### Publish an APK on GitHub
-
-Use GitHub Releases for downloadable APKs. GitHub Packages hosts dependency/container registries rather than Android app downloads.
-
-1. Commit and push the source matching the signed APK to `main`.
-2. Open [New release](https://github.com/JunHuiChia/GymTracker/releases/new).
-3. Create tag `v0.2.0`, targeting the commit used to build this APK. Use `GymTracker 0.2.0` as the release title.
-4. Describe the changes and attach `artifacts/GymTracker-0.2.0.apk` in the binary files area. APKs stay out of Git history and are uploaded as release assets.
-5. Save a draft to review it, or publish the release when ready. Users download the `.apk` asset; the automatically generated source archives are not installable apps.
-
-For future releases, increment the app version/build number, build with the same signing key, and use a new matching version tag. Never attach the signing keystore or `android/key.properties`.
-
-See GitHub's [release guide](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) and [supported package formats](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
 
 ## Storage limits
 
 Cloud backup and database device transfer are disabled. Uninstalling, clearing app data or losing the phone can lose all workout records; this risk is accepted for this MVP. Manual export/restore, cloud sync, timers, iOS and Play Store publishing are deferred.
 
 Physical phone performance, gestures and hardware-specific behaviour require a personal gym trial. See IMPLEMENTATION_PLAN.md and DEVELOPMENT_ENVIRONMENT.md for product scope and setup history.
-
-## Verified locally
-
-Fifteen database/interface tests and static analysis pass. Native Android 13 integration verifies custom exercise/plan creation, variable completed sets, skipped exercises, persistent resume, history and exact training volume. Light/dark phone screenshots and compact 360 dp layouts at 1.3 text scale were reviewed. The integration capture uses --no-enable-impeller on the emulator; release builds retain Flutter's default renderer. Physical-phone and tablet/desktop visual checks remain outstanding; Android phone use is the shipping target.
-
-
-Final deliverable: artifacts/GymTracker-0.2.0.apk (52,877,913 bytes), version 0.2.0+2. APK Signature Scheme v2 verification passed, and its certificate matches 0.1.0. The signed release installed over 0.1.0 and opened on the Android 13 test emulator with the default renderer. A synthetic saved plan and completed 42.5 kg × 8 workout survived the update; the retained database was reopened and verified (340 kg·reps). Twenty final native captures were reviewed against the approved mockup, including light and dark/enlarged-text layouts. Physical-device upgrade testing remains outstanding.
 
 ## License
 
